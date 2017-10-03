@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Beedev Team
+ * @copyright Copyright (c) 2017 Beedev Team
+ * @package Beedev_CatalogpriceruleTester
+ */
+-->
+<config>
+    <modules>
+        <Beedev_CatalogpriceruleTester>
+            <active>true</active>
+            <codePool>local</codePool>
+        </Beedev_CatalogpriceruleTester>
+    </modules>
+</config>

@@ -1,0 +1,107 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Beedev Team
+ * @copyright Copyright (c) 2017 Beedev Team
+ * @package Beedev_CatalogpriceruleTester
+ */
+-->
+
+<config>
+    <modules>
+        <Beedev_CatalogpriceruleTester>
+            <version>v1.0.0</version>
+        </Beedev_CatalogpriceruleTester>
+    </modules>
+    <admin>
+        <routers>
+            <adminhtml>
+                <args>
+                    <modules>
+                        <catalogpriceruletester before="Mage_Adminhtml">Beedev_CatalogpriceruleTester_Adminhtml</catalogpriceruletester>
+                    </modules>
+                </args>
+            </adminhtml>
+        </routers>
+    </admin>
+    <adminhtml>
+        <menu>
+            <promo translate="title" module="catalogpriceruletester">
+                <children>
+                    <catalogpriceruletester>
+                        <title>Catalog Price Rule Tests</title>
+                        <sort_order>300</sort_order>
+                        <children>
+                            <rulereport translate="title" module="catalogpriceruletester">
+                                <title>Catalog Price Rule Report</title>
+                                <sort_order>5</sort_order>
+                                <action>adminhtml/catalogpriceruletester_rulereport</action>
+                            </rulereport>
+                            <producttest translate="title" module="catalogpriceruletester">
+                                <title>Catalog Price Rule Product Test</title>
+                                <sort_order>6</sort_order>
+                                <action>adminhtml/catalogpriceruletester_producttest</action>
+                            </producttest>
+                        </children>
+                    </catalogpriceruletester>
+                </children>
+            </promo>
+        </menu>
+        <acl>
+            <resources>
+                <admin>
+                    <children>
+                        <beedev>
+                            <title>Beedev</title>
+                            <sort_order>300</sort_order>
+                            <children>
+                                <catalogpriceruletester>
+                                    <title>Sales Reports</title>
+                                    <sort_order>300</sort_order>
+                                    <children>
+                                        <rulereport translate="title" module="catalogpriceruletester">
+                                            <title>Rule Report</title>
+                                            <sort_order>1</sort_order>
+                                        </rulereport>
+                                        <producttest translate="title" module="catalogpriceruletester">
+                                            <title>Order Management</title>
+                                            <sort_order>1</sort_order>
+                                        </producttest>
+                                    </children>
+                                </catalogpriceruletester>
+                            </children>
+                        </beedev>
+                    </children>
+                </admin>
+            </resources>
+        </acl>
+    </adminhtml>
+    <global>
+        <blocks>
+            <catalogpriceruletester>
+                <class>Beedev_CatalogpriceruleTester_Block</class>
+            </catalogpriceruletester>
+        </blocks>
+        <helpers>
+            <catalogpriceruletester>
+                <class>Beedev_CatalogpriceruleTester_Helper</class>
+            </catalogpriceruletester>
+        </helpers>
+        <models>
+            <catalogpriceruletester>
+                <class>Beedev_CatalogpriceruleTester_Model</class>
+            </catalogpriceruletester>
+        </models>
+        <events>
+            <adminhtml_widget_container_html_before>
+                <observers>
+                    <catalogpriceruletester_observer>
+                        <class>Beedev_CatalogpriceruleTester_Model_Observer</class>
+                        <type>singleton</type>
+                        <method>adminhtmlWidgetContainerHtmlBefore</method>
+                    </catalogpriceruletester_observer>
+                </observers>
+            </adminhtml_widget_container_html_before>
+        </events>
+    </global>
+</config>
